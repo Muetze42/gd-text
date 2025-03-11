@@ -1,4 +1,5 @@
 <?php
+
 namespace GDText;
 
 use GDText\Struct\Point;
@@ -276,7 +277,8 @@ class Box
                 $this->drawFilledRectangle(
                     new Rectangle(
                         $xMOD,
-                        $this->box->getY() + $yAlign + ($n * $lineHeightPx) + ($lineHeightPx - $backgroundHeight) + (1 - $this->lineHeight) * 13 * (1 / 50 * $this->fontSize),
+                        $this->box->getY() + $yAlign + ($n * $lineHeightPx) + ($lineHeightPx - $backgroundHeight) +
+                        (1 - $this->lineHeight) * 13 * (1 / 50 * $this->fontSize),
                         $box->getWidth(),
                         $backgroundHeight
                     ),
@@ -300,8 +302,8 @@ class Box
             if ($this->textShadow !== false) {
                 $this->drawInternal(
                     new Point(
-                        $xMOD + $this->textShadow['offset']->getX(),
-                        $yMOD + $this->textShadow['offset']->getY()
+                        round($xMOD + $this->textShadow['offset']->getX()),
+                        round($yMOD + $this->textShadow['offset']->getY())
                     ),
                     $this->textShadow['color'],
                     $line
@@ -311,8 +313,8 @@ class Box
             $this->strokeText($xMOD, $yMOD, $line);
             $this->drawInternal(
                 new Point(
-                    $xMOD,
-                    $yMOD
+                    round($xMOD),
+                    round($yMOD)
                 ),
                 $this->fontColor,
                 $line
